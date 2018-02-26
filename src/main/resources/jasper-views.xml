@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="exporterParametersMap" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="sourceMap">
+            <map>
+                <entry key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.IS_WHITE_PAGE_BACKGROUND" value="false"/>
+                <entry key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.CHARACTER_ENCODING" value="UTF-8" />
+                <entry key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.IMAGES_URI" value="http://localhost:8080/javaWeb/image?image="/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="reportView" class="com.ztf.core.ireport.controler.CustomReportView">
+        <property name="reportDataKey" value="jrMainDataSource"/>
+        <property name="exporterParameters" ref="exporterParametersMap"></property>
+    </bean>
+
+</beans>
